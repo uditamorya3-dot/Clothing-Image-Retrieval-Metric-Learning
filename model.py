@@ -8,7 +8,7 @@ from PIL import Image
 
 print("Model load ho raha hai...")
 
-# Pre-trained CNN - ye hi tera Deep Learning model hai
+# Pre-trained CNN 
 base_model = MobileNetV2(weights='imagenet', include_top=False, input_shape=(224,224,3))
 x = GlobalAveragePooling2D()(base_model.output)
 embedding_model = Model(inputs=base_model.input, outputs=x)
@@ -25,7 +25,7 @@ def get_embedding(image_path):
     return embedding[0]
 
 def find_similar(query_embedding, all_embeddings, top_k=3):
-    # Cosine similarity - ye hi Metric Learning hai
+    # Cosine similarity 
     scores = []
     for emb in all_embeddings:
         sim = np.dot(query_embedding, emb) / (np.linalg.norm(query_embedding) * np.linalg.norm(emb))

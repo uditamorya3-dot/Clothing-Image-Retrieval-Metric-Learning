@@ -15,11 +15,12 @@ CREATE TABLE clothing_items (
     brand TEXT
 )
 """)
+cursor.execute("CREATE TABLE IF NOT EXISTS clothing_items (id INTEGER, image TEXT, name TEXT, price INTEGER, brand TEXT)")
 
-cursor.execute("INSERT INTO clothing_items VALUES (1, Null, 'Trekking Jacket', 'Blue', 3500, 'Columbia')")
-cursor.execute("INSERT INTO clothing_items VALUES (2, Null, 'Waterfall Jacket', 'Red', 2800, 'Wildcraft')")
-cursor.execute("INSERT INTO clothing_items VALUES (3, Null, 'Hiking Shirt', 'Green', 1500, 'Decathlon')")
-cursor.execute("INSERT INTO clothing_items VALUES (4, Null, 'DailyWear Jacket', 'Yellow', 2000, 'Quechua')")
+cursor.execute("INSERT INTO clothing_items VALUES (1, 'Trekking Jacket', 'Blue', 3500, 'Columbia')")
+cursor.execute("INSERT INTO clothing_items VALUES (2, 'Waterfall Jacket', 'Red', 2800, 'Wildcraft')")
+cursor.execute("INSERT INTO clothing_items VALUES (3, 'Hiking Shirt', 'Green', 1500, 'Decathlon')")
+cursor.execute("INSERT INTO clothing_items VALUES (4, 'DailyWear Jacket', 'Yellow', 2000, 'Quechua')")
 
 conn.commit()
 conn.close()
